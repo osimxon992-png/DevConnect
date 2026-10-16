@@ -1,3 +1,9 @@
 node_modules
 dist
 .env
+.impeccable/review
+.impeccable/mocks
+.impeccable/serve.log
+.impeccable/hook.cache.json
+.impeccable/brief.md
+.impeccable/questions

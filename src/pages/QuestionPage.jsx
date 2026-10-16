@@ -24,7 +24,7 @@ export default function QuestionPage() {
   const { data, setData, loading, error, reload } = useQuery(async () => {
     const question = await q(supabase.from('questions').select(QUESTION_SELECT).eq('id', id).maybeSingle())
     if (!question) return null
-    const answers = await q(supabase.from('answers').select(`*, author:profiles(${PROFILE_FIELDS})`).eq('question_id', id).order('score', { ascending: false }).order('created_at'))
+    const answers = await q(supabase.from('answers').select(`*, author:profiles!author_id(${PROFILE_FIELDS})`).eq('question_id', id).order('score', { ascending: false }).order('created_at'))
     const [qVote, aVotes] = await Promise.all([
       q(supabase.from('question_votes').select('value').eq('question_id', id).eq('user_id', user.id)),
       answers.length ? q(supabase.from('answer_votes').select('answer_id, value').eq('user_id', user.id).in('answer_id', answers.map((a) => a.id))) : [],

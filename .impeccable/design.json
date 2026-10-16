@@ -1,0 +1,456 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T15:38:58.487Z",
+  "title": "Design System: DevConnect",
+  "extensions": {
+    "colorMeta": {
+      "shell-yellow": {
+        "role": "primary",
+        "displayName": "Solar Shell Yellow",
+        "canonical": "#ffd21f",
+        "tonalRamp": [
+          "#4d3d00",
+          "#856a00",
+          "#bd9700",
+          "#f5c400",
+          "#ffd52e",
+          "#ffe066",
+          "#ffeda3",
+          "#fffae5"
+        ]
+      },
+      "project-pink": {
+        "role": "secondary",
+        "displayName": "Project Pink",
+        "canonical": "#f4669f",
+        "tonalRamp": [
+          "#470520",
+          "#7c0937",
+          "#b00d4e",
+          "#e41066",
+          "#f13c85",
+          "#f570a5",
+          "#f9a9c9",
+          "#fde7f0"
+        ]
+      },
+      "question-blue": {
+        "role": "secondary",
+        "displayName": "Question Blue",
+        "canonical": "#2e9bd6",
+        "tonalRamp": [
+          "#0d2e40",
+          "#16506f",
+          "#1f719e",
+          "#2893cd",
+          "#50abdd",
+          "#7fc2e6",
+          "#b2daf0",
+          "#eaf5fb"
+        ]
+      },
+      "job-green": {
+        "role": "secondary",
+        "displayName": "Job Green",
+        "canonical": "#5dbb63",
+        "tonalRamp": [
+          "#173619",
+          "#275d2b",
+          "#38853d",
+          "#48ac4f",
+          "#6cc171",
+          "#93d297",
+          "#bee4c1",
+          "#edf7ee"
+        ]
+      },
+      "group-orange": {
+        "role": "secondary",
+        "displayName": "Group Orange",
+        "canonical": "#ff8c3a",
+        "tonalRamp": [
+          "#4d2000",
+          "#853700",
+          "#bd4f00",
+          "#f56600",
+          "#ff852e",
+          "#ffa666",
+          "#ffc9a3",
+          "#fff0e5"
+        ]
+      },
+      "hallway-wall": {
+        "role": "neutral",
+        "displayName": "Hallway Wall",
+        "canonical": "#e6e8e1",
+        "tonalRamp": [
+          "#282b21",
+          "#464b3a",
+          "#646b52",
+          "#818b6a",
+          "#9ca489",
+          "#b7bda8",
+          "#d4d7cb",
+          "#f3f4f1"
+        ]
+      },
+      "hallway-wall-deep": {
+        "role": "neutral",
+        "displayName": "Hallway Wall Deep",
+        "canonical": "#d9dcd3",
+        "tonalRamp": [
+          "#282b22",
+          "#454a3b",
+          "#626954",
+          "#7f886c",
+          "#9aa28b",
+          "#b5bbaa",
+          "#d3d6cc",
+          "#f3f4f1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b3b3b3",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "photocopy-ink": {
+        "role": "neutral",
+        "displayName": "Photocopy Ink",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b3b3b3",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "pencil": {
+        "role": "neutral",
+        "displayName": "Pencil",
+        "canonical": "#55574f",
+        "tonalRamp": [
+          "#272824",
+          "#44453f",
+          "#61635a",
+          "#7d8075",
+          "#999b91",
+          "#b4b6af",
+          "#d2d3cf",
+          "#f3f3f2"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#cfd2c8",
+        "tonalRamp": [
+          "#282a22",
+          "#45493c",
+          "#626855",
+          "#7f876e",
+          "#9ba18c",
+          "#b6baab",
+          "#d3d6cd",
+          "#f3f4f1"
+        ]
+      },
+      "field-stroke": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "canonical": "#8d8f87",
+        "tonalRamp": [
+          "#272825",
+          "#434540",
+          "#60625b",
+          "#7d7f76",
+          "#989a93",
+          "#b4b5b0",
+          "#d2d3d0",
+          "#f2f3f2"
+        ]
+      },
+      "stamp-red": {
+        "role": "tertiary",
+        "displayName": "Stamp Red",
+        "canonical": "#c8102e",
+        "tonalRamp": [
+          "#470610",
+          "#7b0a1c",
+          "#af0e28",
+          "#e31234",
+          "#f03d5a",
+          "#f47187",
+          "#f8aab7",
+          "#fde7eb"
+        ]
+      },
+      "code-bg": {
+        "role": "neutral",
+        "displayName": "Code Black",
+        "canonical": "#161616",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b3b3b3",
+          "#d1d1d1",
+          "#f2f2f2"
+        ]
+      },
+      "code-ink": {
+        "role": "neutral",
+        "displayName": "Code Ink",
+        "canonical": "#ecebe4",
+        "tonalRamp": [
+          "#2d2b20",
+          "#4e4b37",
+          "#6f6b4e",
+          "#908a65",
+          "#a9a484",
+          "#c0bca5",
+          "#d9d7c9",
+          "#f4f4f0"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Wordmark",
+        "purpose": "DEVCONNECT wordmark on landing, auth and sidebar."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page h1."
+      },
+      "flyer-title": {
+        "displayName": "Flyer Title",
+        "purpose": "Project, job and group flyer names."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "h2 section heads; tabs at wdth 75."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Question titles and developer names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Posts and descriptions, 60 to 70ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Form labels, table heads, stat captions, sidebar group headings."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Code blocks only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet",
+        "value": "0 1px 0 rgba(17,17,17,0.06), 0 1px 3px rgba(17,17,17,0.12)",
+        "purpose": "Every card, flyer, bubble and the search field at rest."
+      },
+      {
+        "name": "lifted",
+        "value": "0 2px 4px rgba(17,17,17,0.1), 0 10px 24px rgba(17,17,17,0.14)",
+        "purpose": "Hovered link cards, modals, menus, toasts."
+      },
+      {
+        "name": "focus-halo",
+        "value": "0 0 0 3px #ffd21f",
+        "purpose": "Input focus, paired with an ink border."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-paper",
+        "value": "cubic-bezier(.2, .8, .2, 1)",
+        "purpose": "Card lift (.2s), tear-tab pull (.18s), toast entry (.24s)."
+      },
+      {
+        "name": "state-fast",
+        "value": ".12s",
+        "purpose": "Button, input and tab colour changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "none",
+        "purpose": "All transitions and animations off under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "form-single",
+        "value": "600px"
+      },
+      {
+        "name": "mobile",
+        "value": "820px"
+      },
+      {
+        "name": "landing-stack",
+        "value": "900px"
+      },
+      {
+        "name": "no-rail",
+        "value": "1240px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default paper slip with ink edge; hover fills shell yellow.",
+      "html": "<button class=\"ds-btn\">Save draft</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;min-height:40px;border:1.5px solid #111;border-radius:0;background:#fff;color:#111;font:700 .9rem 'Archivo',system-ui,sans-serif;cursor:pointer;transition:background .12s,color .12s}.ds-btn:hover{background:#ffd21f}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid #111;outline-offset:2px}"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink fill, white text; hover turns text yellow.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Post</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;min-height:40px;border:1.5px solid #111;border-radius:0;background:#fff;color:#111;font:700 .9rem 'Archivo',system-ui,sans-serif;cursor:pointer;transition:background .12s,color .12s}.ds-btn:hover{background:#ffd21f}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid #111;outline-offset:2px}.ds-btn-primary{background:#111;color:#fff}.ds-btn-primary:hover{background:#2b2b2b;color:#ffd21f}"
+    },
+    {
+      "name": "Warm Button",
+      "kind": "button",
+      "refersTo": "button-warm",
+      "description": "Project pink, for invitations to act on a project.",
+      "html": "<button class=\"ds-btn ds-btn-warm\">Ask to join</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;min-height:40px;border:1.5px solid #111;border-radius:0;background:#fff;color:#111;font:700 .9rem 'Archivo',system-ui,sans-serif;cursor:pointer;transition:background .12s,color .12s}.ds-btn:hover{background:#ffd21f}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid #111;outline-offset:2px}.ds-btn-warm{background:#f4669f}.ds-btn-warm:hover{background:#f78bb5}"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Paper field with field-stroke border; ink border plus 3px yellow halo on focus.",
+      "html": "<label class=\"ds-field\"><span>Title</span><input class=\"ds-input\" placeholder=\"What are you stuck on?\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;font-family:'Archivo',system-ui,sans-serif;color:#111}.ds-field span{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.ds-input{padding:10px 12px;min-height:42px;background:#fff;border:1.5px solid #8d8f87;border-radius:0;outline:none;font:inherit;transition:border-color .12s,box-shadow .12s}.ds-input::placeholder{color:#75776f}.ds-input:focus{border-color:#111;box-shadow:0 0 0 3px #ffd21f}"
+    },
+    {
+      "name": "Sidebar Nav",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Plain rows on the yellow shell; active reverses to ink.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-active\" href=\"#\">Feed <b class=\"ds-count\">3</b></a><a class=\"ds-nav-link\" href=\"#\">Questions</a><a class=\"ds-nav-link\" href=\"#\">Projects</a></nav>",
+      "css": ".ds-nav{background:#ffd21f;padding:18px;width:220px;font-family:'Archivo',system-ui,sans-serif}.ds-nav-link{display:flex;align-items:center;padding:8px 10px;font-weight:600;font-size:.98rem;color:#111;text-decoration:none}.ds-nav-link:hover{background:rgba(17,17,17,.08)}.ds-nav-link:focus-visible{outline:2px solid #111;outline-offset:2px}.ds-nav-link.ds-active{background:#111;color:#ffd21f}.ds-count{margin-left:auto;min-width:22px;height:20px;padding:0 6px;display:inline-grid;place-items:center;font-size:.72rem;font-weight:800;background:#ffd21f;color:#111}"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Square label; tag variant is an inset ink line.",
+      "html": "<span class=\"ds-chip\">TypeScript</span> <span class=\"ds-chip ds-chip-tag\">#react</span>",
+      "css": ".ds-chip{display:inline-flex;padding:2px 8px;background:#eef0ea;font:600 .78rem/1.5 'Archivo',system-ui,sans-serif;color:#111;border-radius:0}.ds-chip-tag{background:transparent;box-shadow:inset 0 0 0 1px #111}"
+    },
+    {
+      "name": "Post Sheet",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White paper sheet with hairline shadow; lifts on hover when it is a link.",
+      "html": "<article class=\"ds-card\"><strong>@ada</strong><p>Shipped the realtime chat today.</p></article>",
+      "css": ".ds-card{background:#fff;padding:20px 22px;border-radius:0;box-shadow:0 1px 0 rgba(17,17,17,.06),0 1px 3px rgba(17,17,17,.12);font:400 15px/1.55 'Archivo',system-ui,sans-serif;color:#111;max-width:420px;transition:box-shadow .2s cubic-bezier(.2,.8,.2,1),transform .2s cubic-bezier(.2,.8,.2,1)}.ds-card:hover{box-shadow:0 2px 4px rgba(17,17,17,.1),0 10px 24px rgba(17,17,17,.14);transform:translateY(-2px)}"
+    },
+    {
+      "name": "Project Flyer with Tear-off Role Tabs",
+      "kind": "custom",
+      "refersTo": "flyer-project",
+      "description": "Signature: pink flyer ending in a perforated row of vertical role tabs; a taken role is a missing tab.",
+      "html": "<article class=\"ds-flyer\"><div class=\"ds-flyer-body\"><h3 class=\"ds-flyer-title\">Open Transit Map</h3><p>Live bus positions for small cities.</p></div><div class=\"ds-tear\"><button class=\"ds-tab\">Frontend</button><span class=\"ds-tab ds-taken\">Backend</span><button class=\"ds-tab\">Designer</button></div></article>",
+      "css": ".ds-flyer{display:flex;flex-direction:column;width:300px;background:#f4669f;color:#111;box-shadow:0 1px 0 rgba(17,17,17,.06),0 1px 3px rgba(17,17,17,.12);font-family:'Archivo',system-ui,sans-serif}.ds-flyer-body{padding:18px 20px 16px}.ds-flyer-body p{margin:0;font-size:.92rem}.ds-flyer-title{margin:0 0 8px;font-weight:900;font-stretch:62%;font-size:2rem;line-height:.95;text-transform:uppercase}.ds-tear{display:flex;border-top:2px dashed #111}.ds-tab{flex:1;min-width:0;height:112px;border:0;border-right:2px dashed #111;background:transparent;writing-mode:vertical-rl;transform:rotate(180deg);display:flex;align-items:center;justify-content:flex-end;padding:10px 0;font:700 .8rem/1.1 'Archivo',system-ui,sans-serif;color:#111;cursor:pointer;transition:transform .18s cubic-bezier(.2,.8,.2,1),background .12s}.ds-tab:last-child{border-right:0}button.ds-tab:hover{background:rgba(255,255,255,.35);transform:rotate(180deg) translateY(-4px)}button.ds-tab:focus-visible{outline:2px solid #111;outline-offset:2px}.ds-taken{background:#e6e8e1;color:transparent;border-right-color:#e6e8e1;cursor:default}"
+    },
+    {
+      "name": "Question Flyer with Status Mark",
+      "kind": "custom",
+      "refersTo": "flyer-question",
+      "description": "Blue flyer with a ruled vote column; hollow square open, filled square solved.",
+      "html": "<article class=\"ds-q\"><div class=\"ds-q-cell\"><b>12</b><span>votes</span><b>3</b><span>answers</span></div><div class=\"ds-q-main\"><div class=\"ds-q-state\"><i class=\"ds-mark ds-filled\"></i>Solved</div><h3 class=\"ds-q-title\">Why does useEffect run twice?</h3></div></article>",
+      "css": ".ds-q{display:grid;grid-template-columns:76px 1fr;width:360px;background:#2e9bd6;color:#111;box-shadow:0 1px 0 rgba(17,17,17,.06),0 1px 3px rgba(17,17,17,.12);font-family:'Archivo',system-ui,sans-serif}.ds-q-cell{border-right:2px solid #111;padding:14px 6px;display:flex;flex-direction:column;align-items:center;font-variant-numeric:tabular-nums}.ds-q-cell b{font:900 1.7rem/1 'Archivo',system-ui,sans-serif;font-stretch:70%}.ds-q-cell span{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}.ds-q-main{padding:14px 18px 16px}.ds-q-state{font-size:.84rem;font-weight:700}.ds-mark{display:inline-block;width:13px;height:13px;border:2px solid #111;vertical-align:-2px;margin-right:6px}.ds-filled{background:#111}.ds-q-title{margin:8px 0 0;font-weight:800;font-stretch:80%;font-size:1.3rem;line-height:1.12}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Corridor Noticeboard",
+    "overview": "DevConnect is the noticeboard outside a computer science department. The ground is a grey hallway wall. Posts are plain white sheets pinned to it, each lifted by a hairline paper shadow and nothing else. Projects, questions, jobs and groups are flyers on coloured copy paper, so a developer recognises the kind of thing before reading a word. The shell itself (sidebar, mobile bar, notices, modal heads) is solar yellow: the department's own board header.\n\nEverything is printed in photocopy ink. Type is one family, Archivo, ranked by width and weight: condensed, black, uppercase for things you read from across the corridor; normal width for things you read up close. Code is the only place JetBrains Mono appears, on black slabs like a terminal printout taped to the board. Corners are cut square everywhere. There are no gradients, no glows, no purple; the owner rejected those as \"obviously AI-made\", and the paper metaphor has no use for them.\n\nDensity is that of a busy board: dense but calm. Colour carries meaning (content type), ink carries structure (2px rules, reversed active states), and the paper does the rest.",
+    "keyCharacteristics": [
+      "Grey wall, white sheets, coloured flyers by content type, yellow shell.",
+      "Ink #111 plus one pencil grey; no other text colours on paper.",
+      "Archivo only, ranked by width (62 to 100) and weight; mono for code only.",
+      "Zero radius on every surface and control.",
+      "Hairline paper shadow; lift only on hover and for floating layers.",
+      "Signature: perforated tear-off role tabs at the foot of project flyers.",
+      "State as marks in fixed cells: hollow square open, filled square solved."
+    ],
+    "rules": [
+      {
+        "name": "The Copy Paper Rule",
+        "body": "Each bright means one content type: pink is projects, blue is questions, green is jobs, orange is groups, yellow is the shell. Never use a bright decoratively or swap two of them.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Gradient Rule",
+        "body": "Every fill is flat. No gradients, no glows, no purple or violet anywhere. This is an owner commitment, not a preference.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink On Paper Rule",
+        "body": "Text on any flyer stays photocopy ink (#111); muted text on a flyer darkens to #2b2b2b rather than going pencil grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Ranks Rule",
+        "body": "Rank by width and weight, not by switching families. Narrower and heavier means louder. Never introduce a second display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Code Rule",
+        "body": "JetBrains Mono appears only where code appears. Labels, counts and meta stay in Archivo with tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pinned Sheet Rule",
+        "body": "At rest everything is a pinned sheet. Lift is a response to the pointer or a floating layer, never a resting decoration.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do colour a flyer by its content type only: projects pink, questions blue, jobs green, groups orange.",
+      "Do keep the shell (sidebar, mobile bar, notices, modal heads) solar yellow.",
+      "Do set text in photocopy ink (#111) or pencil grey (#55574f) and nothing else on paper.",
+      "Do rank headings by Archivo width and weight: wdth 62 at 900 for the loudest, normal width for reading.",
+      "Do use the sheet shadow at rest and the lifted shadow only on hover or floating layers.",
+      "Do show state with square marks in fixed cells: hollow open, filled solved.",
+      "Do reverse to ink for active navigation, tabs and selected chips."
+    ],
+    "donts": [
+      "Don't use gradients, glows, or purple/violet anywhere.",
+      "Don't round any corner; radius is 0 on every surface, control and mark.",
+      "Don't give sheets borders; use the sheet shadow against the wall.",
+      "Don't use a content-type bright for decoration or for a different content type.",
+      "Don't set labels, counts or meta in JetBrains Mono; mono is for code.",
+      "Don't use dashed lines anywhere except the tear-off perforation."
+    ]
+  }
+}

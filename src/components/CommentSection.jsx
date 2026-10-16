@@ -15,7 +15,7 @@ export default function CommentSection({ target, canModerate = false, onCountCha
   const toast = useToast()
   const [col, id] = Object.entries(target)[0]
   const { data: comments, setData, loading } = useQuery(async () => {
-    const rows = await q(supabase.from('comments').select(`*, author:profiles(${PROFILE_FIELDS})`).eq(col, id).order('created_at'))
+    const rows = await q(supabase.from('comments').select(`*, author:profiles!author_id(${PROFILE_FIELDS})`).eq(col, id).order('created_at'))
     if (!rows.length) return rows
     const likes = await q(supabase.from('comment_likes').select('comment_id').eq('user_id', user.id).in('comment_id', rows.map((c) => c.id)))
     const liked = new Set(likes.map((l) => l.comment_id))
@@ -25,7 +25,7 @@ export default function CommentSection({ target, canModerate = false, onCountCha
   const add = async (content, parentId = null) => {
     const { data, error } = await supabase.from('comments')
       .insert({ [col]: id, content, parent_id: parentId, author_id: user.id })
-      .select(`*, author:profiles(${PROFILE_FIELDS})`).single()
+      .select(`*, author:profiles!author_id(${PROFILE_FIELDS})`).single()
     if (error) { toast(error.message, 'error'); return false }
     setData((cs) => [...cs, { ...data, liked: false }])
     onCountChange?.(1)

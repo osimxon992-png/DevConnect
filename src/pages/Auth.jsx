@@ -121,7 +121,7 @@ export function Register() {
         <Field label="Password" hint="At least 8 characters"><input className="input" type="password" required value={form.password} onChange={set('password')} autoComplete="new-password" /></Field>
         <Field label="Developer level"><Select options={LEVELS} value={form.level} onChange={set('level')} /></Field>
         <Field label="Main programming language"><Select options={LANGUAGES} value={form.main_language} onChange={set('main_language')} /></Field>
-        <Field label="Location"><input className="input" value={form.location} onChange={set('location')} placeholder="Tashkent, Uzbekistan" /></Field>
+        <Field label="Location"><input className="input" value={form.location} onChange={set('location')} placeholder="City, country" /></Field>
         <Field label="Profile photo"><input className="input" type="file" accept="image/*" onChange={(e) => setAvatar(e.target.files[0] || null)} /></Field>
         <Field label="Short bio" className="full"><textarea className="textarea" maxLength={300} value={form.bio} onChange={set('bio')} placeholder="What do you build?" /></Field>
         <button className="btn primary block full" disabled={busy}>{busy ? 'Creating account…' : 'Create account'}</button>

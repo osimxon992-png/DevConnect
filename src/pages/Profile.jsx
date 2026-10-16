@@ -13,7 +13,7 @@ import PostCard from '../components/PostCard'
 import ProjectCard from '../components/ProjectCard'
 import UserCard from '../components/UserCard'
 
-export const PROJECT_CARD_SELECT = `*, owner:profiles(${PROFILE_FIELDS}), project_members(role, user_id)`
+export const PROJECT_CARD_SELECT = `*, owner:profiles!owner_id(${PROFILE_FIELDS}), project_members(role, user_id)`
 
 export default function Profile() {
   const { username } = useParams()

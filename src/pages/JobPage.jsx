@@ -18,7 +18,7 @@ export default function JobPage() {
   const navigate = useNavigate()
   const [editing, setEditing] = useState(false)
   const { data: job, loading, error, reload } = useQuery(
-    () => q(supabase.from('jobs').select(`*, poster:profiles(${PROFILE_FIELDS})`).eq('id', id).maybeSingle()), [id])
+    () => q(supabase.from('jobs').select(`*, poster:profiles!posted_by(${PROFILE_FIELDS})`).eq('id', id).maybeSingle()), [id])
 
   if (loading && !job) return <Spinner />
   if (error || !job) return <Empty title="Job not found">{error?.message}</Empty>

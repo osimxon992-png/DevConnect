@@ -40,7 +40,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="card">
-            <h3>Share code, not screenshots</h3>
+            <h2 className="flyer-title" style={{ fontSize: '1.7rem', marginBottom: 10 }}>Share code, not screenshots</h2>
             <p className="muted" style={{ margin: 0 }}>Posts carry text, images, a code snippet with its language, and a project link. Likes, threaded comments, saves.</p>
           </div>
           <div className="flyer green">

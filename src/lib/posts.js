@@ -1,7 +1,7 @@
 import { supabase, q } from './supabase'
 import { PROFILE_FIELDS } from './constants'
 
-export const POST_SELECT = `*, author:profiles(${PROFILE_FIELDS}), group:groups(id, name)`
+export const POST_SELECT = `*, author:profiles!author_id(${PROFILE_FIELDS}), group:groups(id, name)`
 
 // Adds `liked` to each post with one extra query.
 export async function withMyLikes(posts, userId) {

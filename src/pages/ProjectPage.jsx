@@ -23,7 +23,7 @@ export default function ProjectPage() {
   const closeJoin = () => { setJoining(false); if (params.has('join')) setParams({}, { replace: true }) }
 
   const { data, loading, error, reload } = useQuery(async () => {
-    const project = await q(supabase.from('projects').select(`*, owner:profiles(${PROFILE_FIELDS})`).eq('id', id).maybeSingle())
+    const project = await q(supabase.from('projects').select(`*, owner:profiles!owner_id(${PROFILE_FIELDS})`).eq('id', id).maybeSingle())
     if (!project) return null
     const [members, requests, chat] = await Promise.all([
       q(supabase.from('project_members').select(`*, profile:profiles(${PROFILE_FIELDS})`).eq('project_id', id).order('joined_at')),

@@ -78,7 +78,7 @@ export default function PostCard({ post: initial, onDeleted, canModerate = false
             <div className="post-images">{post.image_urls.map((u) => <img key={u} src={u} alt="" loading="lazy" />)}</div>
           )}
           {post.project_link && (
-            <a className="chip blue" href={safeUrl(post.project_link)} target="_blank" rel="noreferrer noopener" style={{ marginTop: 6 }}>
+            <a className="link small row" href={safeUrl(post.project_link)} target="_blank" rel="noreferrer noopener" style={{ display: 'inline-flex', gap: 6, marginTop: 6 }}>
               <ExternalLink size={13} /> {post.project_link.replace(/^https?:\/\//, '')}
             </a>
           )}

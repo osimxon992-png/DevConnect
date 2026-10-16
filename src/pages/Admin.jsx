@@ -33,10 +33,10 @@ export default function Admin() {
       </div>
       {tab === 'reports' && <Reports />}
       {tab === 'users' && <Users />}
-      {tab === 'posts' && <ContentTable table="posts" select={`id, content, created_at, author:profiles(${PROFILE_FIELDS})`} title={(r) => r.content.slice(0, 120) || '(code/image post)'} link={(r) => `/posts/${r.id}`} />}
-      {tab === 'questions' && <ContentTable table="questions" select={`id, title, created_at, author:profiles(${PROFILE_FIELDS})`} title={(r) => r.title} link={(r) => `/questions/${r.id}`} />}
+      {tab === 'posts' && <ContentTable table="posts" select={`id, content, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.content.slice(0, 120) || '(code/image post)'} link={(r) => `/posts/${r.id}`} />}
+      {tab === 'questions' && <ContentTable table="questions" select={`id, title, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.title} link={(r) => `/questions/${r.id}`} />}
       {tab === 'groups' && <ContentTable table="groups" select="id, name, created_at" title={(r) => r.name} link={(r) => `/groups/${r.id}`} />}
-      {tab === 'jobs' && <ContentTable table="jobs" select={`id, title, company, created_at, author:profiles(${PROFILE_FIELDS})`} title={(r) => `${r.title} — ${r.company}`} link={(r) => `/jobs/${r.id}`} />}
+      {tab === 'jobs' && <ContentTable table="jobs" select={`id, title, company, created_at, author:profiles!posted_by(${PROFILE_FIELDS})`} title={(r) => `${r.title} — ${r.company}`} link={(r) => `/jobs/${r.id}`} />}
     </>
   )
 }
@@ -44,7 +44,7 @@ export default function Admin() {
 function Reports() {
   const [status, setStatus] = useState('open')
   const { data, loading, error, reload } = useQuery(async () => {
-    const reports = await q(supabase.from('reports').select(`*, reporter:profiles(${PROFILE_FIELDS})`).eq('status', status).order('created_at', { ascending: false }).limit(100))
+    const reports = await q(supabase.from('reports').select(`*, reporter:profiles!reporter_id(${PROFILE_FIELDS})`).eq('status', status).order('created_at', { ascending: false }).limit(100))
     // resolve each target to a label + link
     const ids = (type) => reports.filter((r) => r.target_type === type).map((r) => r.target_id)
     const fetch = (table, cols, type) => (ids(type).length ? q(supabase.from(table).select(cols).in('id', ids(type))) : [])

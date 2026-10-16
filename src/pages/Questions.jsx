@@ -10,7 +10,7 @@ import { useQuery } from '../hooks/useQuery'
 import { Field, Loader, Modal, Select, TagInput } from '../components/ui'
 import QuestionCard from '../components/QuestionCard'
 
-export const QUESTION_SELECT = `*, author:profiles(${PROFILE_FIELDS}), question_tags(tag)`
+export const QUESTION_SELECT = `*, author:profiles!author_id(${PROFILE_FIELDS}), question_tags(tag)`
 
 export default function Questions() {
   const [params, setParams] = useSearchParams()

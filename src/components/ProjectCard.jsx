@@ -10,6 +10,8 @@ export function StatusChip({ status }) {
   return <span className={`chip ${color}`}>{text}</span>
 }
 
+export const statusText = (status) => PROJECT_STATUSES.find((s) => s[0] === status)?.[1] ?? status
+
 // Roles a project still needs: a required role is "taken" once a team member holds it.
 export function roleTabs(project, members) {
   const held = new Set(members.filter((m) => m.role !== 'Owner').map((m) => m.role))
@@ -39,13 +41,15 @@ export default function ProjectCard({ project }) {
     <article className="flyer pink">
       {project.image_url && <Link to={`/projects/${project.id}`}><img className="flyer-photo" src={project.image_url} alt="" loading="lazy" /></Link>}
       <div className="flyer-body">
-        <div className="row between"><StatusChip status={project.status} /><SaveButton type="project" id={project.id} /></div>
-        <Link to={`/projects/${project.id}`}><h3 className="flyer-title">{project.name}</h3></Link>
+        <div className="row between" style={{ alignItems: 'flex-start' }}>
+          <Link to={`/projects/${project.id}`}><h3 className="flyer-title">{project.name}</h3></Link>
+          <SaveButton type="project" id={project.id} />
+        </div>
         <p style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{project.description || 'No description yet.'}</p>
         {project.technologies?.length > 0 && <p className="small" style={{ fontWeight: 700 }}>{project.technologies.slice(0, 5).join(' · ')}</p>}
         <div className="flyer-foot">
           {project.owner && <span className="row" style={{ gap: 6 }}><Avatar profile={project.owner} size={22} /> @{project.owner.username}</span>}
-          <span className="row" style={{ gap: 4 }}><Users size={14} /> {members.length}/{project.team_size}</span>
+          <span className="row" style={{ gap: 4, whiteSpace: 'nowrap' }}>{statusText(project.status)} · <Users size={14} /> {members.length}/{project.team_size}</span>
         </div>
       </div>
       <TearTabs tabs={roleTabs(project, members)}

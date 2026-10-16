@@ -11,7 +11,7 @@ export default function DeveloperCard({ dev, following }) {
       <Link to={`/developers/${dev.username}`} className="row">
         <Avatar profile={dev} size={52} />
         <div style={{ minWidth: 0 }}>
-          <div className="ellipsis" style={{ fontWeight: 600 }}>{dev.full_name || dev.username}</div>
+          <div className="ellipsis dev-name">{dev.full_name || dev.username}</div>
           <div className="faint small ellipsis">@{dev.username}</div>
         </div>
       </Link>

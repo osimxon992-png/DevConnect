@@ -8,7 +8,7 @@ export default function ProjectMemberList({ members, isOwner, onRoleChange, onRe
   return (
     <div className="stack" style={{ gap: 4 }}>
       {members.map((m) => (
-        <div key={m.user_id} className="row wrap" style={{ padding: '10px 0', borderBottom: '1px solid var(--line-soft)' }}>
+        <div key={m.user_id} className="row wrap" style={{ padding: '10px 0', borderBottom: '1px solid var(--rule)' }}>
           <Link to={`/developers/${m.profile?.username}`}><Avatar profile={m.profile} size={42} /></Link>
           <div style={{ flex: 1, minWidth: 160 }}>
             <Link to={`/developers/${m.profile?.username}`} style={{ fontWeight: 600 }}>

@@ -88,7 +88,7 @@ export default function QuestionPage() {
           <CodeBlock code={qn.code} language={qn.language} />
           <div className="row wrap" style={{ gap: 6 }}>
             {qn.language && <span className="chip orange">{qn.language}</span>}
-            {qn.question_tags.map((t) => <Link key={t.tag} to={`/questions?tag=${encodeURIComponent(t.tag)}`} className="chip violet">#{t.tag}</Link>)}
+            {qn.question_tags.map((t) => <Link key={t.tag} to={`/questions?tag=${encodeURIComponent(t.tag)}`} className="chip tag">#{t.tag}</Link>)}
           </div>
           <details>
             <summary className="muted small" style={{ cursor: 'pointer' }}>Comments</summary>

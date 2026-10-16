@@ -915,4 +915,4 @@ insert into public.groups (name, description) values
 on conflict do nothing;
 
 -- After you sign up, make yourself admin:
--- update public.profiles set is_admin = true where username = 'your_username';
+update public.profiles set is_admin = true where username = '@osimx';

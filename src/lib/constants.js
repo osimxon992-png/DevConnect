@@ -11,7 +11,7 @@ export const ROLES = [
 ]
 export const PROJECT_STATUSES = [
   ['idea', 'Idea', 'blue'], ['looking', 'Looking for developers', 'orange'],
-  ['in_development', 'In development', 'violet'], ['completed', 'Completed', 'green'],
+  ['in_development', 'In development', 'ink'], ['completed', 'Completed', 'green'],
 ]
 export const WORK_MODES = [['remote', 'Remote'], ['onsite', 'On-site'], ['hybrid', 'Hybrid']]
 export const EMPLOYMENT_TYPES = [

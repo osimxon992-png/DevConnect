@@ -90,7 +90,7 @@ function Reports() {
                   <span className="faint small">by <UserLink profile={r.reporter} /> · {timeAgo(r.created_at)}</span>
                 </div>
               </div>
-              <div>{r.target ? <Link to={r.target[1]} style={{ color: 'var(--violet)' }}>{r.target[0]}</Link> : <span className="faint">Target already deleted</span>}</div>
+              <div>{r.target ? <Link to={r.target[1]} className="link">{r.target[0]}</Link> : <span className="faint">Target already deleted</span>}</div>
               {r.details && <div className="muted small prewrap">{r.details}</div>}
               {status === 'open' && (
                 <div className="row wrap">
@@ -140,7 +140,7 @@ function Users() {
                 <tr key={u.id}>
                   <td><Link to={`/developers/${u.username}`} className="row"><Avatar profile={u} size={30} /> <span>{u.full_name || u.username}<br /><span className="faint small">@{u.username}</span></span></Link></td>
                   <td className="small muted">{timeAgo(u.created_at)}</td>
-                  <td>{u.is_admin && <span className="chip violet">admin</span>} {u.is_suspended ? <span className="chip red">suspended</span> : <span className="chip green">active</span>}</td>
+                  <td>{u.is_admin && <span className="chip tag">admin</span>} {u.is_suspended ? <span className="chip red">suspended</span> : <span className="chip green">active</span>}</td>
                   <td>
                     {!u.is_admin && (
                       <div className="row" style={{ justifyContent: 'flex-end' }}>

@@ -45,10 +45,10 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="hero-banner">
+      <div className="notice">
         <div className="row between wrap">
           <div>
-            <h1 style={{ margin: 0 }}>Hi, {profile.full_name || profile.username} 👋</h1>
+            <h1 style={{ margin: 0 }}>Hi, {profile.full_name || profile.username}</h1>
             <p className="muted" style={{ margin: '4px 0 0' }}>Here's what's happening with your work.</p>
           </div>
           <div className="row wrap">

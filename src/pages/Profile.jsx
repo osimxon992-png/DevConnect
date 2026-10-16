@@ -13,7 +13,7 @@ import PostCard from '../components/PostCard'
 import ProjectCard from '../components/ProjectCard'
 import UserCard from '../components/UserCard'
 
-export const PROJECT_CARD_SELECT = `*, owner:profiles(${PROFILE_FIELDS}), project_members(count)`
+export const PROJECT_CARD_SELECT = `*, owner:profiles(${PROFILE_FIELDS}), project_members(role, user_id)`
 
 export default function Profile() {
   const { username } = useParams()
@@ -64,7 +64,7 @@ export default function Profile() {
           </div>
           {!locked && p.bio && <p className="prewrap" style={{ margin: 0 }}>{p.bio}</p>}
           <div className="row wrap small muted" style={{ gap: 14 }}>
-            <span className="chip violet">{label(LEVELS, p.level)}</span>
+            <span className="chip tag">{label(LEVELS, p.level)}</span>
             {!locked && p.location && <span className="row" style={{ gap: 4 }}><MapPin size={14} /> {p.location}</span>}
             {!locked && p.github && (
               <a className="row" style={{ gap: 4 }} href={p.github.includes('/') ? safeUrl(p.github) : `https://github.com/${p.github}`} target="_blank" rel="noreferrer noopener">

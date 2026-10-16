@@ -16,7 +16,7 @@ export default function DeveloperCard({ dev, following }) {
         </div>
       </Link>
       <div className="row wrap" style={{ gap: 6 }}>
-        <span className="chip violet">{label(LEVELS, dev.level)}</span>
+        <span className="chip tag">{label(LEVELS, dev.level)}</span>
         {dev.main_language && <span className="chip orange">{dev.main_language}</span>}
         {dev.location && <span className="chip"><MapPin size={12} /> {dev.location}</span>}
       </div>

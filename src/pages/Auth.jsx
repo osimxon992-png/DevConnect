@@ -8,14 +8,19 @@ import { Field, Select } from '../components/ui'
 function AuthShell({ title, subtitle, wide, children }) {
   return (
     <div className="auth-wrap">
-      <div className={`card auth-card stack ${wide ? 'wide' : ''}`} style={{ padding: 28 }}>
-        <Link to="/" className="brand" style={{ padding: 0 }}><span className="brand-mark">&lt;/&gt;</span> DevConnect</Link>
-        <div>
-          <h1>{title}</h1>
-          {subtitle && <p className="muted" style={{ margin: 0 }}>{subtitle}</p>}
+      <aside className="auth-side">
+        <Link to="/" className="brand"><span>Dev</span><span>Connect</span></Link>
+        <p>The noticeboard for developers: share code, ask questions, find a team.</p>
+      </aside>
+      <main className="auth-main">
+        <div className={`auth-card stack ${wide ? 'wide' : ''}`} style={{ gap: 20 }}>
+          <div>
+            <h1>{title}</h1>
+            {subtitle && <p className="muted" style={{ margin: 0 }}>{subtitle}</p>}
+          </div>
+          {children}
         </div>
-        {children}
-      </div>
+      </main>
     </div>
   )
 }
@@ -45,7 +50,7 @@ export function Login() {
           <Link to="/forgot-password" className="muted">Forgot password?</Link>
         </div>
         <button className="btn primary block" disabled={busy}>{busy ? 'Logging in…' : 'Log in'}</button>
-        <p className="muted small" style={{ textAlign: 'center', margin: 0 }}>New here? <Link to="/register" style={{ color: 'var(--violet)' }}>Create an account</Link></p>
+        <p className="muted small" style={{ textAlign: 'center', margin: 0 }}>New here? <Link to="/register" className="link">Create an account</Link></p>
       </form>
     </AuthShell>
   )
@@ -120,7 +125,7 @@ export function Register() {
         <Field label="Profile photo"><input className="input" type="file" accept="image/*" onChange={(e) => setAvatar(e.target.files[0] || null)} /></Field>
         <Field label="Short bio" className="full"><textarea className="textarea" maxLength={300} value={form.bio} onChange={set('bio')} placeholder="What do you build?" /></Field>
         <button className="btn primary block full" disabled={busy}>{busy ? 'Creating account…' : 'Create account'}</button>
-        <p className="muted small full" style={{ textAlign: 'center', margin: 0 }}>Already have an account? <Link to="/login" style={{ color: 'var(--violet)' }}>Log in</Link></p>
+        <p className="muted small full" style={{ textAlign: 'center', margin: 0 }}>Already have an account? <Link to="/login" className="link">Log in</Link></p>
       </form>
     </AuthShell>
   )

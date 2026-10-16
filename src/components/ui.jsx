@@ -123,7 +123,7 @@ export function TagInput({ value, onChange, placeholder = 'Type and press Enter'
       {value.length > 0 && (
         <div className="row wrap">
           {value.map((t) => (
-            <span key={t} className="chip violet">{t}
+            <span key={t} className="chip tag">{t}
               <button type="button" onClick={() => onChange(value.filter((x) => x !== t))} aria-label={`Remove ${t}`}><X size={12} /></button>
             </span>
           ))}

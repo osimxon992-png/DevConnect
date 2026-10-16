@@ -40,7 +40,7 @@ export default function Layout() {
   return (
     <div className={`shell ${showRail ? '' : 'no-rail'}`}>
       <nav className="sidebar" aria-label="Main">
-        <Link to="/home" className="brand"><span className="brand-mark">&lt;/&gt;</span> DevConnect</Link>
+        <Link to="/home" className="brand" aria-label="DevConnect home"><span>Dev</span><span>Connect</span></Link>
         {MAIN.map(link)}
         <div className="sidebar-section">You</div>
         {personal.map(link)}
@@ -60,7 +60,7 @@ export default function Layout() {
 
       <main className="main">
         <div className="mobile-top">
-          <Link to="/home" className="brand" style={{ padding: 0 }}><span className="brand-mark">&lt;/&gt;</span></Link>
+          <Link to="/home" className="brand" aria-label="DevConnect home">DC</Link>
           <div style={{ flex: 1 }}><SearchBar placeholder="Search DevConnect" /></div>
           <Link to="/notifications" className="icon-btn" aria-label="Notifications" style={{ position: 'relative' }}>
             <Bell size={20} />{unread.notifications > 0 && <span className="dot" style={{ position: 'absolute', top: 4, right: 6 }} />}

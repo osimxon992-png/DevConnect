@@ -14,7 +14,7 @@ export function MessageList({ messages, members, me, onDelete }) {
   useEffect(() => { end.current?.scrollIntoView({ block: 'end' }) }, [messages.length])
   return (
     <div className="chat-messages">
-      {messages.length === 0 && <div className="empty small">No messages yet. Say hi 👋</div>}
+      {messages.length === 0 && <div className="empty small">No messages yet. Say hello.</div>}
       {messages.map((m, i) => {
         const mine = m.sender_id === me
         const sender = members[m.sender_id]

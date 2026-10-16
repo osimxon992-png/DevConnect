@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowBigUp, ArrowBigDown, CheckCircle2 } from 'lucide-react'
+import { ArrowBigUp, ArrowBigDown } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 import { timeAgo } from '../lib/utils'
 import { useAuth } from '../context/AuthContext'
@@ -29,21 +29,21 @@ export function VoteButtons({ table, column, id, score, myVote = 0, disabled }) 
 }
 
 export default function QuestionCard({ question: qn }) {
+  const solved = qn.status === 'solved'
   return (
-    <div className="card hover row" style={{ alignItems: 'flex-start', gap: 16 }}>
-      <div className="stack" style={{ gap: 6, minWidth: 64, textAlign: 'center' }}>
-        <div className="stat"><b>{qn.score}</b><span>votes</span></div>
-        <div className={`chip ${qn.status === 'solved' ? 'green' : ''}`} style={{ justifyContent: 'center' }}>
-          {qn.status === 'solved' && <CheckCircle2 size={12} />} {qn.answers_count} ans
-        </div>
+    <article className="card hover q-card">
+      <div className="q-cell">
+        <div><b>{qn.score}</b><br /><span>votes</span></div>
+        <div><b>{qn.answers_count}</b><br /><span>answers</span></div>
       </div>
-      <div style={{ flex: 1, minWidth: 0 }} className="stack">
-        <Link to={`/questions/${qn.id}`}><h3 style={{ margin: 0 }}>{qn.title}</h3></Link>
+      <div className="q-main">
+        <div className="small" style={{ fontWeight: 700 }}><span className={`mark ${solved ? 'filled' : ''}`} />{solved ? 'Solved' : 'Open'}</div>
+        <Link to={`/questions/${qn.id}`}><h3>{qn.title}</h3></Link>
         <p className="muted small" style={{ margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{qn.description}</p>
         <div className="row wrap between">
           <div className="row wrap" style={{ gap: 6 }}>
-            {qn.language && <span className="chip orange">{qn.language}</span>}
-            {qn.question_tags?.map((t) => <Link key={t.tag} to={`/questions?tag=${encodeURIComponent(t.tag)}`} className="chip violet">#{t.tag}</Link>)}
+            {qn.language && <span className="chip blue">{qn.language}</span>}
+            {qn.question_tags?.map((t) => <Link key={t.tag} to={`/questions?tag=${encodeURIComponent(t.tag)}`} className="chip tag">#{t.tag}</Link>)}
           </div>
           {qn.author && (
             <Link to={`/developers/${qn.author.username}`} className="row small muted" style={{ gap: 6 }}>
@@ -52,6 +52,6 @@ export default function QuestionCard({ question: qn }) {
           )}
         </div>
       </div>
-    </div>
+    </article>
   )
 }

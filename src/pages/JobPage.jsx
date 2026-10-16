@@ -48,7 +48,7 @@ export default function JobPage() {
         </div>
       </div>
       <div className="row wrap" style={{ gap: 6 }}>
-        <span className="chip violet">{label(WORK_MODES, job.work_mode)}</span>
+        <span className="chip tag">{label(WORK_MODES, job.work_mode)}</span>
         <span className="chip blue">{label(EMPLOYMENT_TYPES, job.employment_type)}</span>
         {job.location && <span className="chip"><MapPin size={12} /> {job.location}</span>}
         {job.salary && <span className="chip green"><Wallet size={12} /> {job.salary}</span>}

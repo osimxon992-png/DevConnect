@@ -56,7 +56,7 @@ export default function PostCard({ post: initial, onDeleted, canModerate = false
           <div className="faint small">
             <Link to={`/posts/${post.id}`}>{timeAgo(post.created_at)}</Link>
             {post.updated_at && ' · edited'}
-            {post.group && <> · in <Link to={`/groups/${post.group.id}`} style={{ color: 'var(--violet)' }}>{post.group.name}</Link></>}
+            {post.group && <> · in <Link to={`/groups/${post.group.id}`} className="link">{post.group.name}</Link></>}
           </div>
         </div>
         <Menu>
@@ -73,7 +73,7 @@ export default function PostCard({ post: initial, onDeleted, canModerate = false
         <>
           {post.content && <div className="post-body prewrap">{post.content}</div>}
           <CodeBlock code={post.code} language={post.language} clamp={!expanded} />
-          {post.language && !post.code && <span className="chip violet">#{post.language.toLowerCase()}</span>}
+          {post.language && !post.code && <span className="chip tag">#{post.language.toLowerCase()}</span>}
           {post.image_urls?.length > 0 && (
             <div className="post-images">{post.image_urls.map((u) => <img key={u} src={u} alt="" loading="lazy" />)}</div>
           )}

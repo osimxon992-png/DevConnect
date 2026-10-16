@@ -32,7 +32,7 @@ function Protected({ admin = false }) {
   if (loading) return <Spinner />
   if (!session) return <Navigate to="/login" replace state={{ from: location.pathname }} />
   if (recovery) return <Navigate to="/reset-password" replace />
-  if (!profile) return <div className="auth-wrap"><div className="alert">Your profile could not be loaded. Try logging out and in again.</div></div>
+  if (!profile) return <div className="auth-wrap single"><div className="alert">Your profile could not be loaded. Try logging out and in again.</div></div>
   if (admin && !profile.is_admin) return <Navigate to="/home" replace />
   return <Layout />
 }
@@ -46,7 +46,7 @@ function PublicOnly({ children }) {
 export default function App() {
   if (!configured) {
     return (
-      <div className="auth-wrap">
+      <div className="auth-wrap single">
         <div className="card auth-card stack">
           <h1>Connect Supabase</h1>
           <p className="muted">Copy <code>.env.example</code> to <code>.env</code>, fill in your Supabase URL and anon key, run <code>supabase/schema.sql</code> in the SQL editor, then restart <code>npm run dev</code>.</p>

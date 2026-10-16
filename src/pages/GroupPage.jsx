@@ -54,13 +54,11 @@ export default function GroupPage() {
 
   return (
     <>
-      <div className="card media-card">
-        <div className="cover" style={{ height: 160 }}>
-          {g.image_url ? <img src={g.image_url} alt="" /> : <span className="glyph">{g.name}</span>}
-        </div>
-        <div className="body" style={{ padding: 20 }}>
+      <article className="flyer orange">
+        {g.image_url && <img className="flyer-photo" src={g.image_url} alt="" style={{ aspectRatio: '21 / 7' }} />}
+        <div className="flyer-body" style={{ padding: '22px 24px' }}>
           <div className="row between wrap">
-            <h1 style={{ margin: 0 }}>{g.name}</h1>
+            <h1 className="flyer-title" style={{ fontSize: 'clamp(2.4rem, 5vw, 3.4rem)' }}>{g.name}</h1>
             <div className="row">
               <button className={`btn ${me ? '' : 'primary'}`} onClick={() => run(toggleMembership(g.id, user.id, Boolean(me)), me ? 'Left group' : 'Joined group')}>
                 {me ? 'Leave group' : 'Join group'}
@@ -73,10 +71,10 @@ export default function GroupPage() {
               )}
             </div>
           </div>
-          <p className="prewrap" style={{ display: 'block' }}>{g.description}</p>
-          <span className="muted small">{members.length} members</span>
+          {g.description && <p className="prewrap" style={{ maxWidth: '70ch', fontSize: '1rem' }}>{g.description}</p>}
+          <span className="small" style={{ fontWeight: 700 }}>{members.length} members</span>
         </div>
-      </div>
+      </article>
 
       <div className="tabs" role="tablist">
         {[['posts', 'Posts'], ['members', `Members · ${members.length}`]].map(([k, t]) => (

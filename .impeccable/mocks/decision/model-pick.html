@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;font:15px/1.5 Archivo,sans-serif;background:#F2F2EE;color:#141414}
+header{height:64px;background:#141414;color:#fff;display:flex;align-items:center;gap:28px;padding:0 40px;font-weight:600}
+header .logo{font-weight:900;font-size:22px;margin-right:20px}
+header input{margin-left:auto;width:360px;padding:9px 12px;border:0;background:#2a2a2a;color:#fff}
+.wrap{display:grid;grid-template-columns:1fr 360px;gap:32px;padding:32px 40px;max-width:1200px;margin:0 auto}
+.post{background:#fff;display:grid;grid-template-columns:150px 1fr;margin-bottom:18px}
+.badge{border-right:1px dashed #bbb;padding:18px 14px;text-align:center;position:relative}
+.badge:before{content:"";display:block;width:34px;height:6px;background:#ccc;margin:0 auto 12px;border-radius:3px}
+.badge .av{width:58px;height:58px;border-radius:50%;background:#17BEBB;margin:0 auto 8px}
+.badge b{display:block;font-size:16px;font-weight:800;line-height:1.1}
+.rib{display:block;margin-top:8px;padding:3px 0;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.r1{background:#E4572E;color:#fff}.r2{background:#FFC914}
+.body{padding:18px 22px}
+.body p{margin-bottom:10px}
+.acts{display:flex;gap:20px;font-weight:600;font-size:14px;color:#555}
+aside .card{background:#fff;padding:18px;margin-bottom:18px}
+aside h3{font-weight:800;margin-bottom:10px}
+.row{display:flex;gap:10px;align-items:center;padding:6px 0}
+.dot{width:30px;height:30px;border-radius:50%;background:#E4572E}
+</style></head><body>
+<header><span class="logo">DevConnect</span><span>Feed</span><span>Questions</span><span>Projects</span><span>Groups</span><span>Jobs</span><input value="Search"></header>
+<div class="wrap"><main>
+<article class="post"><div class="badge"><div class="av"></div><b>Mira Sato</b><span class="rib r1">Senior</span><span class="rib r2">TypeScript</span></div>
+<div class="body"><p>Finally replaced our hand-rolled retry loop with a tiny helper. Exponential backoff, jitter, and it respects AbortSignal.</p><div class="acts"><span>48 likes</span><span>24 comments</span></div></div></article>
+<article class="post"><div class="badge"><div class="av" style="background:#FFC914"></div><b>Diego Alvarez</b><span class="rib r1">Middle</span><span class="rib r2">Go</span></div>
+<div class="body"><p>Is anyone running Postgres row-level security with realtime in production? Curious how you test the policies.</p><div class="acts"><span>12 likes</span><span>9 comments</span></div></div></article>
+</main>
+<aside><div class="card"><h3>Developers to follow</h3><div class="row"><div class="dot"></div>Aisha Bello</div><div class="row"><div class="dot"></div>Lukas Weber</div></div>
+<div class="card"><h3>Looking for developers</h3><p>Trail Log · React Native</p></div></aside></div>
+</body></html>

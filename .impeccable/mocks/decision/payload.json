@@ -1,0 +1,69 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll assigned Corridor Noticeboard. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Corridor Noticeboard",
+      "kicker": "THE ROLL",
+      "lineage": "university CS-department hallway boards: photocopied flyers on Astrobright paper",
+      "thesis": "Every project, question and job is a flyer you can tear a tab off.",
+      "palette": ["#FFD21F", "#E6E8E1", "#111111", "#F4669F", "#2E9BD6", "#5DBB63"],
+      "materials": ["photocopier ink", "Astrobright copy paper", "perforated tear-off tabs"],
+      "viewport": "Solar-yellow nav rail, hallway-grey feed, white paper posts; project flyers end in a row of vertical role tabs.",
+      "risk": "Yellow plus black can tip into loud poster styling if the cards grow borders and shadows.",
+      "raised": [
+        {"from": "challenger-ikeda", "raise": "Ink commits: one black and one pencil grey, never a third grey."},
+        {"from": "challenger-emigre", "raise": "One family, Archivo, carries every rank through width and weight."},
+        {"from": "challenger-timetable", "raise": "State is a mark in a fixed cell: open hollow, solved filled."},
+        {"from": "challenger-transit", "raise": "Right angles only: zero radius on every card, button and input."},
+        {"from": "challenger-botanical", "raise": "Cards share one baseline grid so a feed reads as one board."},
+        {"from": "challenger-goods", "raise": "Developer grid reflows in whole cells, each with a name plate."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html"
+    },
+    {
+      "id": "model-pick",
+      "label": "Conference Lanyard",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "dev-conference name badges with role ribbons",
+      "thesis": "Every developer is a name badge; roles are ribbons.",
+      "palette": ["#FFFFFF", "#141414", "#E4572E", "#17BEBB", "#FFC914"],
+      "materials": ["badge card stock", "printed ribbons", "lanyard strap"],
+      "viewport": "Top bar, feed of posts whose author block is a badge with a ribbon for level and language.",
+      "risk": "Familiar: close to what many dev-community sites already ship.",
+      "html": ".impeccable/mocks/decision/model-pick.html"
+    },
+    {"id": "challenger-ikeda", "label": "Datamatics Field", "verdict": "declined", "lineage": "Ryoji Ikeda data installations",
+     "thesis": "The feed as a black-and-white data field.", "palette": ["#000000", "#FFFFFF"], "materials": ["barcode bars", "monospace numerics"],
+     "viewport": "Dense mono columns of posts.", "risk": "Unreadable for long posts.", "case": "Fuses poorly: a social feed is prose, not data.", "kept": "Total palette commitment."},
+    {"id": "challenger-emigre", "label": "Bitmap Specimen", "verdict": "declined", "lineage": "Emigre bitmap type specimens",
+     "thesis": "Pixel type at poster scale.", "palette": ["#F7F7F2", "#111111", "#FF3B30"], "materials": ["bitmap type", "halftone"],
+     "viewport": "Pixel headline over justified columns.", "risk": "Novelty wears off on daily use.", "case": "Fuses as costume on a working screen.", "kept": "One family at many sizes."},
+    {"id": "challenger-timetable", "label": "Timetable Slide Rack", "verdict": "declined", "lineage": "1970s pocket airline timetables",
+     "thesis": "One type size, rank by weight and case.", "palette": ["#D9A400", "#2B2B2B", "#E34234", "#1E6B52"], "materials": ["tinted glass", "goldenrod stock"],
+     "viewport": "Raked slides of posts.", "risk": "Raked containers fight reading.", "case": "Loses on clarity and identification.", "kept": "State as marks in fixed cells."},
+    {"id": "challenger-transit", "label": "Midnight Transit Diagram", "verdict": "declined", "lineage": "metro maps on enamel",
+     "thesis": "Connections drawn as transit lines.", "palette": ["#14213D", "#FFFFFF", "#E63946", "#2A6FDB", "#F4A261"], "materials": ["enamel", "porcelain ticks"],
+     "viewport": "Network map of follows.", "risk": "A map is not a feed.", "case": "Fuses only for one screen.", "kept": "Right-angle geometric discipline."},
+    {"id": "challenger-botanical", "label": "Botanical Folio", "verdict": "declined", "lineage": "seasonal plant plates",
+     "thesis": "Projects as plates through stages.", "palette": ["#F3EEDF", "#3B5D3A", "#B3261E"], "materials": ["engraving", "sepia rules"],
+     "viewport": "Fixed-scale project plates.", "risk": "Cream and serif is the AI default.", "case": "Loses on audience identification.", "kept": "Shared baseline across cards."},
+    {"id": "challenger-goods", "label": "Character Goods Catalog", "verdict": "declined", "lineage": "mascot goods catalogs",
+     "thesis": "Developers as a ranked mascot roster.", "palette": ["#FCE1E4", "#C1E1C1", "#111111"], "materials": ["pastel fills", "keylines"],
+     "viewport": "Pastel roster grid.", "risk": "Too cute for professionals.", "case": "Loses on both axes.", "kept": "Whole-cell reflow with name plates."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": true},
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean developer-community app, executed carefully.",
+    "palette": ["#FFFFFF", "#F6F8FA", "#1F2328", "#0969DA"],
+    "materials": ["clean grid", "system type"],
+    "viewport": "Top bar, three columns, white cards on light grey.",
+    "risk": "Indistinguishable from the competition by design.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "steer": true
+}

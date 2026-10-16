@@ -1,0 +1,76 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1440px;height:900px;overflow:hidden;font:15px/1.5 Archivo,sans-serif;font-variation-settings:"wdth" 100;color:#111;background:#E6E8E1;display:grid;grid-template-columns:248px 1fr 340px}
+.rail{background:#FFD21F;padding:28px 22px;display:flex;flex-direction:column;gap:2px}
+.mark{font-weight:900;font-stretch:62%;font-size:44px;line-height:.9;letter-spacing:-.01em;margin-bottom:28px;text-transform:uppercase}
+.nav{display:flex;justify-content:space-between;padding:9px 10px;font-weight:600;font-size:16px}
+.nav.on{background:#111;color:#FFD21F}
+.nav b{font-weight:800;font-stretch:75%}
+.sec{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:22px 10px 6px}
+.me{margin-top:auto;border-top:2px solid #111;padding-top:14px;display:flex;gap:10px;align-items:center;font-weight:600}
+.av{width:36px;height:36px;background:#111;color:#FFD21F;display:grid;place-items:center;font-weight:800}
+main{padding:28px 32px;display:flex;flex-direction:column;gap:18px}
+.search{background:#fff;border:1.5px solid #111;padding:12px 14px;color:#555}
+.tabs{display:flex;gap:0;border-bottom:2px solid #111}
+.tabs span{padding:8px 16px;font-weight:700;font-stretch:80%;font-size:17px;text-transform:uppercase}
+.tabs .on{background:#111;color:#fff}
+.post{background:#fff;padding:20px 22px;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.who{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.who b{font-weight:700}.who small{color:#5a5a55;font-size:13px}
+pre{background:#111;color:#f1f1ea;font:13px/1.6 'JetBrains Mono',monospace;padding:14px 16px;margin:12px 0}
+.acts{display:flex;gap:22px;font-weight:600;font-size:14px;border-top:1px solid #d3d5cd;padding-top:10px}
+aside{padding:28px 28px 0 0;display:flex;flex-direction:column;gap:18px}
+.flyer{background:#F4669F;padding:18px 18px 0}
+.flyer h3{font-weight:900;font-stretch:62%;font-size:34px;line-height:.95;text-transform:uppercase}
+.flyer p{font-size:14px;margin:8px 0 12px}
+.tabsrow{display:flex;border-top:2px dashed #111;margin:0 -18px}
+.tab{flex:1;height:118px;border-right:2px dashed #111;writing-mode:vertical-rl;transform:rotate(180deg);font-weight:700;font-size:13px;padding:10px 0;display:flex;align-items:center;justify-content:flex-end}
+.tab.gone{background:#E6E8E1;color:#E6E8E1}
+.q{background:#2E9BD6;padding:16px 18px;color:#111}
+.q h4{font-weight:800;font-stretch:80%;font-size:19px;line-height:1.15}
+.mk{display:inline-block;width:12px;height:12px;border:2px solid #111;margin-right:6px;vertical-align:-1px}
+.mk.f{background:#111}
+.q div{font-size:13px;margin-top:6px;font-weight:600}
+</style></head><body>
+<nav class="rail">
+<div class="mark">Dev<br>Connect</div>
+<div class="nav on">Home</div><div class="nav">Explore</div><div class="nav">Developers</div>
+<div class="nav">Questions <b>12</b></div><div class="nav">Projects</div><div class="nav">Groups</div><div class="nav">Jobs</div>
+<div class="sec">You</div>
+<div class="nav">Messages <b>3</b></div><div class="nav">Notifications <b>8</b></div><div class="nav">Saved</div>
+<div class="me"><div class="av">R</div>Rahim Karimov</div>
+</nav>
+<main>
+<div class="search">Search developers, posts, questions, projects</div>
+<div class="tabs"><span class="on">For you</span><span>Following</span><span>Trending</span><span>Latest</span></div>
+<article class="post">
+<div class="who"><div class="av">M</div><div><b>Mira Sato</b> <small>· senior · 2h</small></div></div>
+<p>Finally replaced our hand-rolled retry loop with a tiny helper. Exponential backoff, jitter, and it respects AbortSignal.</p>
+<pre>export async function retry(fn, { tries = 5, signal } = {}) {
+  for (let i = 0; i &lt; tries; i++) {
+    try { return await fn() } catch (e) {
+      if (signal?.aborted || i === tries - 1) throw e
+      await sleep(2 ** i * 100 + Math.random() * 100)
+    }
+  }
+}</pre>
+<div class="acts"><span>♥ 48</span><span>24 comments</span><span>Copy link</span></div>
+</article>
+<article class="post">
+<div class="who"><div class="av">D</div><div><b>Diego Alvarez</b> <small>· middle · 5h</small></div></div>
+<p>Is anyone running Postgres row-level security with realtime in production? Curious how you test the policies.</p>
+</article>
+</main>
+<aside>
+<div class="flyer">
+<h3>Trail Log needs a team</h3>
+<p>Offline-first hiking journal. React Native + Supabase. 3 of 5 seats filled.</p>
+<div class="tabsrow"><div class="tab">Frontend</div><div class="tab gone">Backend</div><div class="tab">Mobile</div><div class="tab">UI/UX</div><div class="tab gone">DevOps</div></div>
+</div>
+<div class="q"><h4>Why does useEffect run twice in development?</h4><div><span class="mk"></span>Open · 3 answers · #react</div></div>
+<div class="q"><h4>Rust lifetimes in a struct holding a slice</h4><div><span class="mk f"></span>Solved · 5 answers · #rust</div></div>
+</aside>
+</body></html>

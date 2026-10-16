@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 // Used when the host (e.g. Vercel) has no env vars. Paste values from .env; the publishable key is public, RLS protects the data.
-const FALLBACK_URL = "https://cmybrvqujsrrcvvyzbep.supabase.co/rest/v1/";
+const FALLBACK_URL = "https://cmybrvqujsrrcvvyzbep.supabase.co";
 const FALLBACK_KEY = "sb_publishable_SWx6bdNA5OdmjBPPWzn1Lg_XxpYHDYw";
 
 const url = import.meta.env.VITE_SUPABASE_URL || FALLBACK_URL;

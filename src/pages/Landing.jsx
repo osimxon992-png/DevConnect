@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import InstallButton from '../components/InstallButton'
 
 // The board shows what each kind of flyer is for; it describes features, it does not fake activity.
 export default function Landing() {
@@ -11,6 +12,7 @@ export default function Landing() {
           <div className="actions">
             <Link to="/register" className="btn primary">Create your profile</Link>
             <Link to="/login" className="btn">Log in</Link>
+            <InstallButton />
           </div>
         </section>
 

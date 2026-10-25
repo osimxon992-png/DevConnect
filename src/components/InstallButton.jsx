@@ -8,7 +8,9 @@ const notify = () => listeners.forEach((f) => f())
 window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; notify() })
 window.addEventListener('appinstalled', () => { deferred = null; notify() })
 
-// Hidden when the browser can't install (already installed, iOS Safari, Firefox).
+const installed = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone
+
+// Hidden once installed; without a native prompt (iOS, Firefox, criteria not met yet) it shows manual steps.
 export default function InstallButton({ className = 'btn', children = <><Download size={18} /> Install app</> }) {
   const [, rerender] = useState(0)
   useEffect(() => {
@@ -16,9 +18,15 @@ export default function InstallButton({ className = 'btn', children = <><Downloa
     listeners.add(f)
     return () => listeners.delete(f)
   }, [])
-  if (!deferred) return null
+  if (installed) return null
 
   const install = async () => {
+    if (!deferred) {
+      alert(/iPhone|iPad/.test(navigator.userAgent)
+        ? "Safari: Share tugmasi → \"Add to Home Screen\""
+        : "Chrome: ⋮ menyu → \"Install app\" yoki \"Bosh ekranga qo'shish\"")
+      return
+    }
     deferred.prompt()
     await deferred.userChoice
     deferred = null

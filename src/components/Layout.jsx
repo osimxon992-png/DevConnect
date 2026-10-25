@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useLocation, Link } from 'react-router-dom'
 import {
   Home, Compass, Users, HelpCircle, FolderGit2, UsersRound, Briefcase, MessageSquare,
-  Bell, Bookmark, LayoutDashboard, Settings, Shield, LogOut,
+  Bell, Bookmark, LayoutDashboard, Settings, Shield, LogOut, Download,
 } from 'lucide-react'
 import InstallButton from './InstallButton'
 import { useAuth } from '../context/AuthContext'
@@ -64,6 +64,7 @@ export default function Layout() {
         <div className="mobile-top">
           <Link to="/home" className="brand" aria-label="DevConnect home">DC</Link>
           <div style={{ flex: 1 }}><SearchBar placeholder="Search DevConnect" /></div>
+          <InstallButton className="icon-btn"><Download size={20} /></InstallButton>
           <Link to="/notifications" className="icon-btn" aria-label="Notifications" style={{ position: 'relative' }}>
             <Bell size={20} />{unread.notifications > 0 && <span className="dot" style={{ position: 'absolute', top: 4, right: 6 }} />}
           </Link>

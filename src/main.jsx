@@ -8,6 +8,8 @@ import '@fontsource-variable/archivo/wdth.css'
 import '@fontsource-variable/jetbrains-mono'
 import './styles.css'
 
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js')
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>

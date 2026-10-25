@@ -3,6 +3,7 @@ import {
   Home, Compass, Users, HelpCircle, FolderGit2, UsersRound, Briefcase, MessageSquare,
   Bell, Bookmark, LayoutDashboard, Settings, Shield, LogOut,
 } from 'lucide-react'
+import InstallButton from './InstallButton'
 import { useAuth } from '../context/AuthContext'
 import { useUnread } from '../hooks/useUnread'
 import { Avatar } from './ui'
@@ -45,6 +46,7 @@ export default function Layout() {
         <div className="sidebar-section">You</div>
         {personal.map(link)}
         <div className="spacer" />
+        <InstallButton className="btn block" />
         <div className="divider" />
         <div className="row" style={{ padding: '10px 6px 0' }}>
           <Link to={`/developers/${profile.username}`} className="row" style={{ flex: 1, minWidth: 0 }}>

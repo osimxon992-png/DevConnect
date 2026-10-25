@@ -3,6 +3,7 @@ import { configured } from './lib/supabase'
 import { useAuth } from './context/AuthContext'
 import { Spinner } from './components/ui'
 import Layout from './components/Layout'
+import AdminLayout from './components/AdminLayout'
 import Landing from './pages/Landing'
 import { Login, Register, ForgotPassword, ResetPassword } from './pages/Auth'
 import Home from './pages/Home'
@@ -34,7 +35,7 @@ function Protected({ admin = false }) {
   if (recovery) return <Navigate to="/reset-password" replace />
   if (!profile) return <div className="auth-wrap single"><div className="alert">Your profile could not be loaded. Try logging out and in again.</div></div>
   if (admin && !profile.is_admin) return <Navigate to="/home" replace />
-  return <Layout />
+  return admin ? <AdminLayout /> : <Layout />
 }
 
 function PublicOnly({ children }) {
@@ -86,6 +87,7 @@ export default function App() {
       </Route>
       <Route element={<Protected admin />}>
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/:section" element={<Admin />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

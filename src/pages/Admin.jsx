@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { Trash2, Ban, CheckCircle2, XCircle } from 'lucide-react'
 import { supabase, q } from '../lib/supabase'
 import { PROFILE_FIELDS, REPORT_REASONS, label } from '../lib/constants'
@@ -8,7 +8,6 @@ import { useToast } from '../context/ToastContext'
 import { useQuery } from '../hooks/useQuery'
 import { Avatar, Loader, Select, UserLink } from '../components/ui'
 
-const TABS = [['reports', 'Reports'], ['users', 'Users'], ['posts', 'Posts'], ['questions', 'Questions'], ['groups', 'Groups'], ['jobs', 'Jobs']]
 const CONTENT_TABLE = { post: 'posts', comment: 'comments', question: 'questions', project: 'projects', job: 'jobs' }
 
 function useAdminAction(reload) {
@@ -23,20 +22,58 @@ function useAdminAction(reload) {
   }
 }
 
+const SECTIONS = {
+  reports: ['Reports', 'Review what members flagged.', () => <Reports />],
+  users: ['Users', 'Suspend or remove accounts.', () => <Users />],
+  posts: ['Posts', 'Latest posts across the network.', () => <ContentTable table="posts" select={`id, content, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.content.slice(0, 120) || '(code/image post)'} link={(r) => `/posts/${r.id}`} />],
+  questions: ['Questions', 'Latest questions.', () => <ContentTable table="questions" select={`id, title, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.title} link={(r) => `/questions/${r.id}`} />],
+  projects: ['Projects', 'Latest projects.', () => <ContentTable table="projects" select={`id, name, created_at, author:profiles!owner_id(${PROFILE_FIELDS})`} title={(r) => r.name} link={(r) => `/projects/${r.id}`} />],
+  groups: ['Groups', 'All groups.', () => <ContentTable table="groups" select="id, name, created_at" title={(r) => r.name} link={(r) => `/groups/${r.id}`} />],
+  jobs: ['Jobs', 'Latest job posts.', () => <ContentTable table="jobs" select={`id, title, company, created_at, author:profiles!posted_by(${PROFILE_FIELDS})`} title={(r) => `${r.title} — ${r.company}`} link={(r) => `/jobs/${r.id}`} />],
+}
+
 export default function Admin() {
-  const [tab, setTab] = useState('reports')
+  const { section } = useParams()
+  if (!section) return <Overview />
+  if (!SECTIONS[section]) return <Navigate to="/admin" replace />
+  const [title, text, render] = SECTIONS[section]
+  return (
+    <>
+      <div className="page-head"><div><h1>{title}</h1><p>{text}</p></div></div>
+      {render()}
+    </>
+  )
+}
+
+const count = (table, filter) => {
+  let query = supabase.from(table).select('*', { count: 'exact', head: true })
+  if (filter) query = query.eq(...filter)
+  return q(query)
+}
+
+function Overview() {
+  const { data, loading, error } = useQuery(async () => {
+    const stats = [
+      ['users', 'Users', 'profiles'], ['suspended', 'Suspended', 'profiles', ['is_suspended', true]],
+      ['reports', 'Open reports', 'reports', ['status', 'open']], ['posts', 'Posts', 'posts'],
+      ['questions', 'Questions', 'questions'], ['projects', 'Projects', 'projects'],
+      ['groups', 'Groups', 'groups'], ['jobs', 'Jobs', 'jobs'],
+    ]
+    const values = await Promise.all(stats.map(([, , table, filter]) => count(table, filter)))
+    return stats.map(([key, label], i) => [key, label, values[i]])
+  }, [])
   return (
     <>
       <div className="page-head"><div><h1>Admin panel</h1><p>Moderate users, content and reports.</p></div></div>
-      <div className="tabs" role="tablist">
-        {TABS.map(([k, t]) => <button key={k} role="tab" aria-selected={tab === k} className={`tab ${tab === k ? 'active' : ''}`} onClick={() => setTab(k)}>{t}</button>)}
-      </div>
-      {tab === 'reports' && <Reports />}
-      {tab === 'users' && <Users />}
-      {tab === 'posts' && <ContentTable table="posts" select={`id, content, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.content.slice(0, 120) || '(code/image post)'} link={(r) => `/posts/${r.id}`} />}
-      {tab === 'questions' && <ContentTable table="questions" select={`id, title, created_at, author:profiles!author_id(${PROFILE_FIELDS})`} title={(r) => r.title} link={(r) => `/questions/${r.id}`} />}
-      {tab === 'groups' && <ContentTable table="groups" select="id, name, created_at" title={(r) => r.name} link={(r) => `/groups/${r.id}`} />}
-      {tab === 'jobs' && <ContentTable table="jobs" select={`id, title, company, created_at, author:profiles!posted_by(${PROFILE_FIELDS})`} title={(r) => `${r.title} — ${r.company}`} link={(r) => `/jobs/${r.id}`} />}
+      <Loader loading={loading} error={error}>
+        <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))' }}>
+          {data?.map(([key, label, value]) => (
+            <Link key={key + label} to={`/admin/${key === 'suspended' ? 'users' : key}`} className="card stat">
+              <b>{value}</b><span>{label}</span>
+            </Link>
+          ))}
+        </div>
+      </Loader>
     </>
   )
 }
